@@ -1,0 +1,86 @@
+---
+title: "Databrary & Million Tutor Moves Observatories"
+author: Rick Gilmore
+date: 2024-04-12
+execute:
+  freeze: auto
+---
+
+## About
+
+This page provides supplemental material for the conversation with the Million Tutor Moves Observatories project group on 2024-04-12.
+
+## Set-up
+
+Install the development version of *databraryr* if needed.
+By default the `eval: false` option in the code chunk means that the chunk will not be evaluated.
+
+```{r}
+#| eval: false
+pak::pak("databrary/databraryr")
+```
+
+## Log-in
+
+```{r}
+drq <- databraryr::make_default_request()
+databraryr::login_db(email = Sys.getenv("DATABRARY_LOGIN"), store = TRUE, rq = drq)
+```
+
+## Retrieve data from volume 61
+
+DeLoache, J. (2014). Scale errors offer evidence for a perception-action dissociation early in life. *Databrary*. Retrieved April 11, 2024 from <http://doi.org/10.17910/B7H019>.
+
+```{r}
+v61_assets <- databraryr::list_volume_assets(vol_id = 61, rq = drq)
+```
+
+Download videos to local folder.
+
+```{r}
+downloaded_fns <- v61_assets |>
+  dplyr::filter(format_extension == "mp4") |>
+  databraryr::download_session_assets_fr_df(target_dir = "mp4", 
+                                            overwrite = TRUE,
+                                            make_portable_fn = TRUE, rq = drq)
+
+downloaded_fns
+```
+
+::: {.callout-note}
+
+Looks like I need to clean-up the file name cleaning routine.
+
+:::
+
+## Embed videos
+
+`{r} downloaded_fns[1]`
+
+{{< video mp4/9850/Scale_error_with_car.mp4 >}}
+
+`{r} downloaded_fns[2]`
+
+{{< video mp4/9850/Scale_error_with_chair.mp4 >}}
+
+`{r} downloaded_fns[3]`
+
+{{< video mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4 >}}
+
+`{r} downloaded_fns[4]`
+
+{{< video mp4/9850/Scale_error_with_chair__2nd_example_.mp4 >}}
+
+`{r} downloaded_fns[5]`
+
+{{< video mp4/9850/Scale_error_with_slide.mp4 >}}
+
+`{r} downloaded_fns[6]`
+
+{{< video mp4/9850/Scale_error_with_slide__2nd_example_.mp4 >}}
+
+## Log-out
+
+```{r}
+databraryr::logout_db(rq = drq)
+```
