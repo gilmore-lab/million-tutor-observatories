@@ -158,19 +158,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="retrieve-data-from-volume-61">Retrieve data from volume 61</h2>
 <p>DeLoache, J. (2014). Scale errors offer evidence for a perception-action dissociation early in life. <em>Databrary</em>. Retrieved April 11, 2024 from <a href="http://doi.org/10.17910/B7H019" class="uri">http://doi.org/10.17910/B7H019</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>v61_assets <span class="ot">&lt;-</span> databraryr<span class="sc">::</span><span class="fu">list_volume_assets</span>(<span class="at">vol_id =</span> <span class="dv">61</span>, <span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>v61_assets <span class="ot">&lt;-</span> databraryr<span class="sc">::</span><span class="fu">list_volume_assets</span>(<span class="at">vol_id =</span> <span class="dv">61</span>, <span class="at">rq =</span> drq)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>v61_assets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  asset_id asset_format_id asset_duration
+1    11547            -800          38996
+2    11550            -800          28076
+3    11552            -800          26065
+4    11556            -800          23662
+5    11555            -800          12769
+6    11557            -800          16015
+                                 asset_name asset_permission asset_size
+1                      Scale error with car                2    4102540
+2                    Scale error with chair                2    2820679
+3 Scale error with car (child removes shoe)                2    3961624
+4      Scale error with chair (2nd example)                2    1767886
+5                    Scale error with slide                2    1891488
+6      Scale error with slide (2nd example)                2    1426875
+  session_id format_mimetype format_extension  format_name
+1       9850       video/mp4              mp4 MPEG-4 video
+2       9850       video/mp4              mp4 MPEG-4 video
+3       9850       video/mp4              mp4 MPEG-4 video
+4       9850       video/mp4              mp4 MPEG-4 video
+5       9850       video/mp4              mp4 MPEG-4 video
+6       9850       video/mp4              mp4 MPEG-4 video</code></pre>
+</div>
 </div>
 <p>Download videos to local folder.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>downloaded_fns <span class="ot">&lt;-</span> v61_assets <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(format_extension <span class="sc">==</span> <span class="st">"mp4"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  databraryr<span class="sc">::</span><span class="fu">download_session_assets_fr_df</span>(<span class="at">target_dir =</span> <span class="st">"mp4"</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code> ■■■■■■■■■■■                       33% |  ETA:  4s</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When downloading identifiable data, it’s important to add the target directory (here <code>mp4/</code>) to the appropriate <code>.gitignore</code> file.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>downloaded_fns <span class="ot">&lt;-</span> v61_assets <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(format_extension <span class="sc">==</span> <span class="st">"mp4"</span>) <span class="sc">|&gt;</span> <span class="co"># Not needed here, but handy</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  databraryr<span class="sc">::</span><span class="fu">download_session_assets_fr_df</span>(<span class="at">target_dir =</span> <span class="st">"mp4"</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "mp4/9850/Scale_error_with_car.mp4"                     
 [2] "mp4/9850/Scale_error_with_chair.mp4"                   
@@ -190,7 +225,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Looks like I need to clean-up the file name cleaning routine used by the <code>make_portable_fn</code> parameter.</p>
+<p>Looks like I need to clean-up the file name cleaning function used by the <code>make_portable_fn</code> parameter. There are duplicate underscores.</p>
 </div>
 </div>
 </section>
@@ -224,7 +259,7 @@ Note
 <section id="log-out" class="level2">
 <h2 class="anchored" data-anchor-id="log-out">Log-out</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>

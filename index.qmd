@@ -40,13 +40,20 @@ DeLoache, J. (2014). Scale errors offer evidence for a perception-action dissoci
 
 ```{r}
 v61_assets <- databraryr::list_volume_assets(vol_id = 61, rq = drq)
+v61_assets
 ```
 
 Download videos to local folder.
 
+::: {.callout-warning}
+
+When downloading identifiable data, it's important to add the target directory (here `mp4/`) to the appropriate `.gitignore` file.
+
+:::
+
 ```{r}
 downloaded_fns <- v61_assets |>
-  dplyr::filter(format_extension == "mp4") |>
+  dplyr::filter(format_extension == "mp4") |> # Not needed here, but handy
   databraryr::download_session_assets_fr_df(target_dir = "mp4", 
                                             overwrite = TRUE,
                                             make_portable_fn = TRUE, rq = drq)
@@ -56,7 +63,8 @@ downloaded_fns
 
 ::: {.callout-note}
 
-Looks like I need to clean-up the file name cleaning routine used by the `make_portable_fn` parameter.
+Looks like I need to clean-up the file name cleaning function used by the `make_portable_fn` parameter.
+There are duplicate underscores.
 
 :::
 
