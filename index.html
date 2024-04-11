@@ -75,10 +75,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
+  <li><a href="#log-in" id="toc-log-in" class="nav-link" data-scroll-target="#log-in">Log-in</a></li>
+  <li><a href="#retrieve-data-from-volume-61" id="toc-retrieve-data-from-volume-61" class="nav-link" data-scroll-target="#retrieve-data-from-volume-61">Retrieve data from volume 61</a></li>
+  <li><a href="#embed-videos" id="toc-embed-videos" class="nav-link" data-scroll-target="#embed-videos">Embed videos</a>
+  <ul class="collapse">
+  <li><a href="#mp49850scale_error_with_car.mp4" id="toc-mp49850scale_error_with_car.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_car.mp4">mp4/9850/Scale_error_with_car.mp4</a></li>
+  <li><a href="#mp49850scale_error_with_chair.mp4" id="toc-mp49850scale_error_with_chair.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_chair.mp4">mp4/9850/Scale_error_with_chair.mp4</a></li>
+  <li><a href="#mp49850scale_error_with_car__child_removes_shoe_.mp4" id="toc-mp49850scale_error_with_car__child_removes_shoe_.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_car__child_removes_shoe_.mp4">mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4</a></li>
+  <li><a href="#mp49850scale_error_with_chair__2nd_example_.mp4" id="toc-mp49850scale_error_with_chair__2nd_example_.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_chair__2nd_example_.mp4">mp4/9850/Scale_error_with_chair__2nd_example_.mp4</a></li>
+  <li><a href="#mp49850scale_error_with_slide.mp4" id="toc-mp49850scale_error_with_slide.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_slide.mp4">mp4/9850/Scale_error_with_slide.mp4</a></li>
+  <li><a href="#mp49850scale_error_with_slide__2nd_example_.mp4" id="toc-mp49850scale_error_with_slide__2nd_example_.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_slide__2nd_example_.mp4">mp4/9850/Scale_error_with_slide__2nd_example_.mp4</a></li>
+  </ul></li>
+  <li><a href="#log-out" id="toc-log-out" class="nav-link" data-scroll-target="#log-out">Log-out</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -145,9 +166,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(format_extension <span class="sc">==</span> <span class="st">"mp4"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  databraryr<span class="sc">::</span><span class="fu">download_session_assets_fr_df</span>(<span class="at">target_dir =</span> <span class="st">"mp4"</span>, </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code> ■■■■■■■■■■■                       33% |  ETA:  4s</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "mp4/9850/Scale_error_with_car.mp4"                     
 [2] "mp4/9850/Scale_error_with_chair.mp4"                   
@@ -167,29 +190,41 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Looks like I need to clean-up the file name cleaning routine.</p>
+<p>Looks like I need to clean-up the file name cleaning routine used by the <code>make_portable_fn</code> parameter.</p>
 </div>
 </div>
 </section>
 <section id="embed-videos" class="level2">
 <h2 class="anchored" data-anchor-id="embed-videos">Embed videos</h2>
-<p>mp4/9850/Scale_error_with_car.mp4</p>
+<section id="mp49850scale_error_with_car.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_car.mp4">mp4/9850/Scale_error_with_car.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_car.mp4"></video></div>
-<p>mp4/9850/Scale_error_with_chair.mp4</p>
+</section>
+<section id="mp49850scale_error_with_chair.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_chair.mp4">mp4/9850/Scale_error_with_chair.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_chair.mp4"></video></div>
-<p>mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4</p>
+</section>
+<section id="mp49850scale_error_with_car__child_removes_shoe_.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_car__child_removes_shoe_.mp4">mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4"></video></div>
-<p>mp4/9850/Scale_error_with_chair__2nd_example_.mp4</p>
+</section>
+<section id="mp49850scale_error_with_chair__2nd_example_.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_chair__2nd_example_.mp4">mp4/9850/Scale_error_with_chair__2nd_example_.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_chair__2nd_example_.mp4"></video></div>
-<p>mp4/9850/Scale_error_with_slide.mp4</p>
+</section>
+<section id="mp49850scale_error_with_slide.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_slide.mp4">mp4/9850/Scale_error_with_slide.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_slide.mp4"></video></div>
-<p>mp4/9850/Scale_error_with_slide__2nd_example_.mp4</p>
+</section>
+<section id="mp49850scale_error_with_slide__2nd_example_.mp4" class="level3">
+<h3 class="anchored" data-anchor-id="mp49850scale_error_with_slide__2nd_example_.mp4">mp4/9850/Scale_error_with_slide__2nd_example_.mp4</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video6" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="mp4/9850/Scale_error_with_slide__2nd_example_.mp4"></video></div>
+</section>
 </section>
 <section id="log-out" class="level2">
 <h2 class="anchored" data-anchor-id="log-out">Log-out</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>

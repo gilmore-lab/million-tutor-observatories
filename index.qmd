@@ -4,6 +4,13 @@ author: Rick Gilmore
 date: 2024-04-12
 execute:
   freeze: auto
+format:
+  html:
+    repo-url: gilmore-lab/million-tutor-observatories
+    repo-actions: [edit, issue]
+    toc: true
+    toc-depth: 3
+    toc-location: right
 ---
 
 ## About
@@ -49,33 +56,33 @@ downloaded_fns
 
 ::: {.callout-note}
 
-Looks like I need to clean-up the file name cleaning routine.
+Looks like I need to clean-up the file name cleaning routine used by the `make_portable_fn` parameter.
 
 :::
 
 ## Embed videos
 
-`{r} downloaded_fns[1]`
+### `{r} downloaded_fns[1]`
 
 {{< video mp4/9850/Scale_error_with_car.mp4 >}}
 
-`{r} downloaded_fns[2]`
+### `{r} downloaded_fns[2]`
 
 {{< video mp4/9850/Scale_error_with_chair.mp4 >}}
 
-`{r} downloaded_fns[3]`
+### `{r} downloaded_fns[3]`
 
 {{< video mp4/9850/Scale_error_with_car__child_removes_shoe_.mp4 >}}
 
-`{r} downloaded_fns[4]`
+### `{r} downloaded_fns[4]`
 
 {{< video mp4/9850/Scale_error_with_chair__2nd_example_.mp4 >}}
 
-`{r} downloaded_fns[5]`
+### `{r} downloaded_fns[5]`
 
 {{< video mp4/9850/Scale_error_with_slide.mp4 >}}
 
-`{r} downloaded_fns[6]`
+### `{r} downloaded_fns[6]`
 
 {{< video mp4/9850/Scale_error_with_slide__2nd_example_.mp4 >}}
 
