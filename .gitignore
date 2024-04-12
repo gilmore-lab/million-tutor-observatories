@@ -4,3 +4,5 @@
 .Ruserdata
 mp4
 million-tutor-observatories.Rproj
+/.quarto/
+.DS_Store

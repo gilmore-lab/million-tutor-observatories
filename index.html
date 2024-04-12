@@ -9,7 +9,7 @@
 <meta name="author" content="Rick Gilmore">
 <meta name="dcterms.date" content="2024-04-12">
 
-<title>Databrary &amp; Million Tutor Moves Observatories</title>
+<title>Seeing is believing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
   <li><a href="#log-in" id="toc-log-in" class="nav-link" data-scroll-target="#log-in">Log-in</a></li>
-  <li><a href="#retrieve-data-from-volume-61" id="toc-retrieve-data-from-volume-61" class="nav-link" data-scroll-target="#retrieve-data-from-volume-61">Retrieve data from volume 61</a></li>
+  <li><a href="#retrieve-data" id="toc-retrieve-data" class="nav-link" data-scroll-target="#retrieve-data">Retrieve data</a></li>
   <li><a href="#embed-videos" id="toc-embed-videos" class="nav-link" data-scroll-target="#embed-videos">Embed videos</a>
   <ul class="collapse">
   <li><a href="#mp49850scale_error_with_car.mp4" id="toc-mp49850scale_error_with_car.mp4" class="nav-link" data-scroll-target="#mp49850scale_error_with_car.mp4">mp4/9850/Scale_error_with_car.mp4</a></li>
@@ -98,13 +98,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#log-out" id="toc-log-out" class="nav-link" data-scroll-target="#log-out">Log-out</a></li>
   </ul>
-</nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://doi.org/10.17910/B7H019"><i class="bi bi-link-45deg"></i>DeLoache et al.</a></li><li><a href="https://databrary.org"><i class="bi bi-link-45deg"></i>Databrary.org</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/gilmore-lab/million-tutor-observatories"><i class="bi bi-github"></i>This demo</a></li><li><a href="https://databrary.github.io/databraryr"><i class="bi bi-link-45deg"></i>databraryr</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Databrary &amp; Million Tutor Moves Observatories</h1>
+<h1 class="title">Seeing is believing</h1>
+<p class="subtitle lead">Support materials for conversation with Million Tutor Moves Observatories Team</p>
 </div>
 
 
@@ -154,8 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="retrieve-data-from-volume-61" class="level2">
-<h2 class="anchored" data-anchor-id="retrieve-data-from-volume-61">Retrieve data from volume 61</h2>
+<section id="retrieve-data" class="level2">
+<h2 class="anchored" data-anchor-id="retrieve-data">Retrieve data</h2>
 <p>DeLoache, J. (2014). Scale errors offer evidence for a perception-action dissociation early in life. <em>Databrary</em>. Retrieved April 11, 2024 from <a href="http://doi.org/10.17910/B7H019" class="uri">http://doi.org/10.17910/B7H019</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>v61_assets <span class="ot">&lt;-</span> databraryr<span class="sc">::</span><span class="fu">list_volume_assets</span>(<span class="at">vol_id =</span> <span class="dv">61</span>, <span class="at">rq =</span> drq)</span>
@@ -203,9 +204,14 @@ Warning
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(format_extension <span class="sc">==</span> <span class="st">"mp4"</span>) <span class="sc">|&gt;</span> <span class="co"># Not needed here, but handy</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  databraryr<span class="sc">::</span><span class="fu">download_session_assets_fr_df</span>(<span class="at">target_dir =</span> <span class="st">"mp4"</span>, </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">make_portable_fn =</span> <span class="cn">TRUE</span>, <span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code> ■■■■■■■■■■■                       33% |  ETA:  5s</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> ■■■■■■■■■■■■■■■■■■■■■■■■■■        83% |  ETA:  1s</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>downloaded_fns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "mp4/9850/Scale_error_with_car.mp4"                     
 [2] "mp4/9850/Scale_error_with_chair.mp4"                   
@@ -226,6 +232,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Looks like I need to clean-up the file name cleaning function used by the <code>make_portable_fn</code> parameter. There are duplicate underscores.</p>
+<p>Also, the 9850 is the session identifier.</p>
 </div>
 </div>
 </section>
@@ -259,7 +266,7 @@ Note
 <section id="log-out" class="level2">
 <h2 class="anchored" data-anchor-id="log-out">Log-out</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>databraryr<span class="sc">::</span><span class="fu">logout_db</span>(<span class="at">rq =</span> drq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
